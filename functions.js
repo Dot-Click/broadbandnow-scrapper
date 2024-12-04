@@ -6,7 +6,7 @@ const broadbandnowscrapper = async (zip, type) => {
     let content;
     const browser = await puppeteer.launch({
         headless: true,
-        args: ["--no-sandbox", "--disable-setuid-sandbox"],
+        // args: ["--no-sandbox", "--disable-setuid-sandbox"],
         protocolTimeout: 1000000,
     });
     const page = await browser.newPage();
@@ -41,6 +41,7 @@ const broadbandnowscrapper = async (zip, type) => {
     const providers = parseData(content);
     return providers;
   } catch (error) {
+    console.log("Error occurred while scraping", error);
     throw new Error(error);
   }
 };
