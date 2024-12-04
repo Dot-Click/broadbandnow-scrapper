@@ -7,6 +7,7 @@ const broadbandnowscrapper = async (zip, type) => {
     const browser = await puppeteer.launch({
         headless: true,
         args: ["--no-sandbox", "--disable-setuid-sandbox"],
+        protocolTimeout: 1000000,
     });
     const page = await browser.newPage();
     await page.goto("https://broadbandnow.com/");
