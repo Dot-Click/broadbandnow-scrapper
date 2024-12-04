@@ -1,4 +1,5 @@
-FROM node:20.13.1-alpine3.14
+# Use a supported base image with Node.js and Alpine
+FROM node:16-alpine3.14
 
 # Install dependencies for puppeteer
 RUN apt-get update \
