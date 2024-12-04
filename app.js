@@ -24,13 +24,13 @@ router.route("/fetch-providers/:zip").get(async (req, res) => {
       );
     }
     const key = `${req.params.zip}-${type}`;
-    const cachedData = await redis.get(key);
-    if (cachedData) {
-      return res.json(JSON.parse(cachedData));
-    }
+    // const cachedData = await redis.get(key);
+    // if (cachedData) {
+    //   return res.json(JSON.parse(cachedData));
+    // }
     const data = await broadbandnowscrapper(req.params.zip, type);
     res.json(data);
-    redis.set(key, JSON.stringify(data), "EX", 60 * 60 * 24 * 7);
+    // redis.set(key, JSON.stringify(data), "EX", 60 * 60 * 24 * 7);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
