@@ -1,5 +1,5 @@
 # Use a supported base image with Node.js and Alpine
-FROM node:16-alpine3.14
+FROM node:18-alpine
 
 # Install Puppeteer dependencies
 RUN apk --no-cache add \
